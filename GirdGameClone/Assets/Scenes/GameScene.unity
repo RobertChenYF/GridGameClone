@@ -1056,10 +1056,11 @@ MonoBehaviour:
     type: 3}
   Player: {fileID: 1144860526}
   TextMeshPro: {fileID: 721591819}
-  countDown: 6
   Canvas: {fileID: 2130708757}
   scoreText: {fileID: 815617329}
   endScore: {fileID: 634403459}
+  particle: {fileID: 6767543972785821235, guid: 59377a6de2fca38489400d00f5531212,
+    type: 3}
 --- !u!4 &1056989129
 Transform:
   m_ObjectHideFlags: 0

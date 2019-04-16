@@ -20,13 +20,13 @@ public class GridManager : MonoBehaviour
     private bool readyToDestroy = true;
     public GameObject Player;
     public TextMeshPro TextMeshPro;
-    public int countDown = 6;
+    private int countDown = 6;
     private int score = 0;
     public GameObject Canvas;
     private GameObject a;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI endScore;
-
+    public GameObject particle;
 
     void Start()
     {
@@ -100,7 +100,8 @@ if (Input.GetKeyDown("right") && playerX < COLS - 1)
                 score = 0; 
             }
         }
-        
+
+        SpawnParticle();
         Replace();
         DropDown();
         PlayerDropDown();
@@ -348,7 +349,7 @@ if (Input.GetKeyDown("right") && playerX < COLS - 1)
         {
             if (board[ROWS - 1,i].color == blackColorCode )
             {
-                board[ROWS - 1, i].color = Random.Range(0,6);
+                board[ROWS - 1, i].color = Random.Range(0,5);
             }
         }
     }
@@ -388,5 +389,28 @@ if (Input.GetKeyDown("right") && playerX < COLS - 1)
         TextMeshPro.text = countDown.ToString();
         Player.transform.position = position;
     }
+
+    void SpawnParticle()
+    {
+        for (int i = 0; i < ROWS; i++)
+        {
+            for (int u = 0; u < COLS; u++)
+            {
+                if (board[i, u].readyToDestroy == readyToDestroy)
+                {
+                    Vector3 position = new Vector3(1.5f * u - 3f, 1.5f * i - 4.5f);
+                    Instantiate(particle, position, transform.rotation);
+
+                }
+
+
+
+            }
+
+
+
+        }
+        
+                }
 }
 
